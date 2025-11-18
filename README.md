@@ -71,3 +71,16 @@ erDiagram
     destinations ||--o{ template_event : has
     trips ||--o{ events : has
 ```
+
+
+### CRUD Matrix
+
+| Table           | C | R | U | D |
+|-----------------|---|---|---|---|
+| profiles        | - | R | U | - |
+| user_roles      | C | R | U | D |
+| destinations    | C | R | U | D |
+| template_event  | C | R | U | D |
+| trips           | C | R | U | D |
+| events          | C | R | U | D |
+```
