@@ -1,4 +1,3 @@
-# ERD-diagram-test
 ```mermaid
 erDiagram
 
