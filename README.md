@@ -73,14 +73,61 @@ erDiagram
 ```
 
 
-### CRUD Matrix
+### Admin CRUD Matrix
 
-| Table           | C | R | U | D |
-|-----------------|---|---|---|---|
-| profiles        | - | R | U | - |
-| user_roles      | C | R | U | D |
-| destinations    | C | R | U | D |
-| template_event  | C | R | U | D |
-| trips           | C | R | U | D |
-| events          | C | R | U | D |
+| Entity          | Create | Read | Update | Delete |
+|-----------------|:------:|:----:|:------:|:------:|
+| profiles        |   ✖    |  ✔   |   ✔    |   ✖    |
+| user_roles      |   ✔    |  ✔   |   ✔    |   ✔    |
+| destinations    |   ✔    |  ✔   |   ✔    |   ✔    |
+| template_event  |   ✔    |  ✔   |   ✔    |   ✔    |
+| trips           |   ✔    |  ✔   |   ✔    |   ✔    |
+| events          |   ✔    |  ✔   |   ✔    |   ✔    |
+
+### User CRUD Matrix
+
+| Entity          | Create | Read | Update | Delete |
+|-----------------|:------:|:----:|:------:|:------:|
+| profiles        |   ✖    |  ✔   |   ✔    |   ✖    |
+| user_roles      |   ✖    |  ✖   |   ✖    |   ✖    |
+| destinations    |   ✖    |  ✔   |   ✖    |   ✖    |
+| template_event  |   ✖    |  ✔   |   ✖    |   ✖    |
+| trips           |   ✔    |  ✔   |   ✔    |   ✔    |
+| events          |   ✔    |  ✔   |   ✔    |   ✔    |
+
+
+```mermaid
+flowchart TD
+
+    %% --- ROLES ---
+    A[Admin]:::role
+    U[User]:::role
+
+    %% --- ENTITIES ---
+    P[profiles]:::entity
+    R[user_roles]:::entity
+    D[destinations]:::entity
+    T[template_event]:::entity
+    TR[trips]:::entity
+    E[events]:::entity
+
+    %% --- ADMIN CRUD ---
+    A -->|C✖ R✔ U✔ D✖| P
+    A -->|C✔ R✔ U✔ D✔| R
+    A -->|C✔ R✔ U✔ D✔| D
+    A -->|C✔ R✔ U✔ D✔| T
+    A -->|C✔ R✔ U✔ D✔| TR
+    A -->|C✔ R✔ U✔ D✔| E
+
+    %% --- USER CRUD ---
+    U -->|C✖ R✔ U✔ D✖| P
+    U -->|C✖ R✖ U✖ D✖| R
+    U -->|C✖ R✔ U✖ D✖| D
+    U -->|C✖ R✔ U✖ D✖| T
+    U -->|C✔ R✔ U✔ D✔| TR
+    U -->|C✔ R✔ U✔ D✔| E
+
+    %% --- STYLES ---
+    classDef role fill:#5DADE2,stroke:#1B4F72,stroke-width:2px,color:white;
+    classDef entity fill:#FDEBD0,stroke:#B7950B,stroke-width:2px;
 ```
